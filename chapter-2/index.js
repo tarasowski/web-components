@@ -5,9 +5,94 @@ console.log(
 )
 
 class Slider extends HTMLElement {
+
+static get observedAttributes() {
+  return ["value", "backgroundcolor"]
+}
+
+
+attributeChangedCallback(name, oldVal, newValue) {
+   switch(name) {
+     case "value": 
+       this.refreshSlider(newValue)
+    case "backgroundcolor":
+       this.setColor(newValue)
+   }
+    
+}
+
+// Now add reflection for the JS API
+
+get value() {
+  return this.getAttribute("value")
+}
+set value(val) {
+  return this.setAttribute("value", val)
+}
+
+get backgroundcolor() {
+  return this.getAttribute("backgroundcolor")
+}
+
+set backgroundcolor(val) {
+  return this.setAttribute("backgroundcolor", val)
+}
+
+
+setColor(color) {
+  if (this.querySelector(".bg-overlay")) {
+    this.querySelector(".bg-overlay").style.background =
+      `linear-gradient(to right, ${color} 0%, ${color}00 100%)`
+  }
+}
+
+refreshSlider(value) {
+  if (this.querySelector(".thumb")) {
+    this.querySelector(".thumb").style.left = (value/100 * 
+      this.offsetWidth - this.querySelector(".thumb").offsetWidth/2) + "px"
+  }
+}
+
+updateX(x) {
+  let hPos = 
+    x - this.querySelector(".thumb").offsetWidth / 2
+  if (hPos > this.offsetWidth) {
+    hPos = this.offsetWidth
+  }
+  if (hPos < 0) {
+    hPos = 0
+  }
+  const result = (hPos / this.offsetWidth) * 100
+  console.log(result)
+  this.value = result
+}
+
+eventHandler(e) {
+  const bounds = this.getBoundingClientRect()
+  const x = e.clientX - bounds.left
+  switch (e.type) {
+    case "mousedown":
+      this.isDragging = true
+      this.updateX(x)
+      this.refreshSlider(this.value)
+    case "mouseup":
+      this.isDragging = true
+      break
+    case "mousemove":
+      if (this.isDragging) {
+        this.updateX(x)
+        this.refreshSlider(this.value)
+      }
+  }
+}
+
   connectedCallback() {
   // is fired when the element is added to the DOM
-    console.log("Hi from Slider")
+    this.setColor(this.backgroundcolor)
+    this.refreshSlider(this.value)
+    document.addEventListener("mousemove", e => this.eventHandler(e))
+    document.addEventListener("mouseup", e => this.eventHandler(e))
+    document.addEventListener("mousedown", e => this.eventHandler(e))
     this.innerHTML = '<div class="bg-overlay"></div><div class="thumb"></div>'
     this.style.display = "inline-block"
     this.style.position = "relative"
@@ -27,6 +112,7 @@ class Slider extends HTMLElement {
     this.querySelector(".thumb").style.borderRadius = "3px"
   }
 }
+
 
 // we give a namespace wcia for the web component
 // so it can be used anywhere

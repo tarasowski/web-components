@@ -18,6 +18,6 @@
   },
   "homepage": "https://github.com/tarasowski/web-components#readme",
   "dependencies": {
-    "es-dev-server": "^1.55.0"
+    "es-dev-server": "^1.55.1"
   }
 }

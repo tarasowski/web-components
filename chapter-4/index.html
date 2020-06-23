@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <meta name="author" content="">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+    my-custom-tag {
+      background-color: blue;
+      padding: 20px;
+      display: inline-block;
+      color: white
+    }
+    </style>
+  </head>
+  <body>
+  <my-clean-up></my-clean-up>
+  <button onclick="remove()">Remove Child</button>
+    <script type="module" src="index.js"></script>
+  </body>
+  <script>
+    const remove = () =>
+    document.body.removeChild(document.querySelector("my-clean-up"))
+  </script>
+
+</html>
+

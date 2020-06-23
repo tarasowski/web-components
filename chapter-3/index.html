@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <meta name="author" content="">
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+  myapp-poly-search {
+  border: 1px solid red;
+  padding: 10px;
+  display: inline-block;
+  text-align: center;
+  }
+  myapp-poly-search img {
+    margin: 5px;
+  }
+  </style>
+</head>
+
+<body>
+
+  <p>Hello, world!</p>
+  <label for="">Enter search term...</label>
+  <input type="text" onchange="updatePolySearch(event)">
+  <myapp-poly-search
+    apikey="XXX"
+    searchterm="parrot"
+    thumbheight=100
+    thumbwidth=150
+    backgroundcolor="blue"
+    baseurl="https://poly.googleapis.com/v1/assets"
+    ></myapp-poly-search>
+  <script type="module" src="index.js"></script>
+  <script>
+  const updatePolySearch = e => {
+    console.log(e.target.value)
+    document.querySelector("myapp-poly-search").setAttribute("searchterm", e.target.value)
+  }
+  </script>
+</body>
+
+</html>
