@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Business Card</title>
+        <script type="module" src="/chapter7-slots/components/bizcard/bizcard.js"></script>
+    </head>
+
+
+    <body>
+        <p>
+            <select onchange="updateLayout(event)">
+                <option value="none">none</option>
+                <option value="default-card">default</option>
+                <option value="variation">variation</option>
+            </select>
+        </p>
+        <biz-card layout="none">
+                  <span slot="firstname">Ben</span>
+                  <span slot="lastname">Farell</span>
+                  <span slot="title">CEO</span>
+                  <span slot="phone">555.555.555.555</span>
+                  <span slot="email">ben@farell.com</span>
+        </biz-card>
+
+        <script>
+            function updateLayout(event) {
+                document.querySelector('biz-card').setAttribute('layout', event.target.value);
+            }
+        </script>
+    </body>
+</html>

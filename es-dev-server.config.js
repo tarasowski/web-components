@@ -5,7 +5,7 @@ module.exports = {
     watch: true,
     open: true,
     nodeResolve: true,
-    appIndex: 'chapter-3/index.html',
+    appIndex: 'chapter7-slots/index.html',
     plugins: [],
     moduleDirs: [],
 };

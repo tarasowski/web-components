@@ -1,0 +1,30 @@
+<html>
+<body>
+  <template id="button">
+    <button>Click me</button>
+    <p>
+    This is a template with a button</p>
+  </template>
+  <template id="textfield">
+  <label for="">Enter</label>
+  <input type="text">
+  <p>This is a template with a text input</p>
+  </template>
+  <template id="list">
+  <ul>
+    <li>Item 1</li>
+    <li>Item 2</li>
+    <li>Item 3</li>
+    <li>Item 4</li>
+  </ul></template>
+  <script>
+  const template = document.getElementById("button")
+  // .content property returns the document fragment
+  const clone = template.content.cloneNode(true)
+  document.body.appendChild(clone)
+  const clone2 = template.content.cloneNode(true)
+  document.body.appendChild(clone2)
+  </script>
+</body>
+
+</html>
