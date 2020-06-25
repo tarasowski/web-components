@@ -7,6 +7,21 @@ export default {
     let choices = list.map(item => `<option value="${item.uri}">${item.name}</option>`)
     return `<select>${choices}</select>`
   },
+  // caching the DOM element
+  // you only reference it once in the Web Component Class
+  // creating a reference to the elements
+  mapDOM(scope) {
+    return {
+      logoPicker: scope.querySelector(
+        ".logo-picker select"),
+      backgroundPicker: scope.querySelector(
+        ".background-picker select"),
+      logo: scope.querySelector(
+        ".logo"),
+      background: scope.querySelector(
+        ".biz-card")
+    }
+  },
   html(p) { return ` 
   <div class="logo-picker">Logo: ${this.options(p.logoChoices)}</div>
   <div class="background-picker">Logo: ${this.options(p.backgroundChoices)}</div>

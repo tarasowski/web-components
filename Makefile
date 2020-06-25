@@ -1,2 +1,2 @@
 start:
-	python -m SimpleHTTPServer
+	$(shell npx es-dev-server)

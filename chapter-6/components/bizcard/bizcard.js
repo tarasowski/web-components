@@ -1,4 +1,5 @@
 import Template from "./template.js"
+import MapDOM from "./mapdom.js"
 
 export class BizCard extends HTMLElement {
   connectedCallback() {
@@ -24,6 +25,17 @@ export class BizCard extends HTMLElement {
         {name: "cone", uri: "./images/cone-logo.png"},
       ]
     })
+    this.dom = Template.mapDOM(this)
+    //this.dom = MapDOM.map(this)
+    this.dom.backgroundPicker.addEventListener("change", e => this.updateGraphics())
+    this.dom.logoPicker.addEventListener("change", e => this.updateGraphics())
+    this.updateGraphics()
+  }
+  updateGraphics() {
+    this.dom.background
+        .style.backgroundImage = `url("${this.dom.backgroundPicker.value}")`
+    this.dom.logo
+        .style.backgroundImage = `url("${this.dom.logoPicker.value}")`
   }
 }
 
