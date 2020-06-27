@@ -9,7 +9,7 @@ export default {
   html(exercise) {
     return `
     <div id="info"></div>
-      <span id="label">Hello ${exercise.label}</span>
+      <span id="label">${exercise.label}</span>
       <span id="delete">x</span>
       `
   },
@@ -17,6 +17,7 @@ export default {
     return `
     <style>
       :host {
+        font-family: var(--font);
         display: inline-block;
         background: radial-gradient(circle,
         rgba(235,235,235,1) 0%, rgba(208,208,208,1) 100%);
@@ -25,16 +26,16 @@ export default {
         border-left-width: 5px;
       }
       :host(.cardio) {
-        border-left-color: #28a7ff; 
+        border-left:5px solid #28a7ff; 
       }
       :host(.strength) {
-        border-left-color: #75af01;
+        border-left:5px solid #75af01;
       }
       #info {
         font-size: small;
         display: flex;
         align-items: center;
-        background-color: black;
+        background-color: var(--label-color);
         color: white;
       }
       :host {

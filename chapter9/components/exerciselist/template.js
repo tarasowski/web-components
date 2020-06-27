@@ -9,7 +9,7 @@ export default {
     <h1>Exercises</h1>
     <div id="container">
     ${props.map(e => 
-    "<wkout-exercise class=" + e.type + "></wkout-exercise>").join("")}
+    "<wkout-exercise label=" + e.label + " class=" + e.type + "></wkout-exercise>").join("")}
     </div>
     `
   },
@@ -19,10 +19,15 @@ export default {
     :host {
       display: flex;
       flex-direction: column;
+      font-family: var(--font);
+      color: var(--text-color);
     }
     #container {
       overflow-y: scroll;
       height: calc(100% - 60px);
+    }
+    h1 {
+      font-size: var(--header-font-size);
     }
     </style>
     `

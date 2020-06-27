@@ -18,6 +18,8 @@ export default {
       :host {
         display: flex;
         flex-direction: column;
+        font-family: var(--font);
+        color: var(--text-color);
       }
       #time {
         height: 30px;
@@ -27,6 +29,9 @@ export default {
         0%, rgba(208,208,208,1) 100%);
         height: calc(100% - 60px);
         overflow-y: scroll;
+      }
+      h1 {
+        font-size: var(--header-font-size);
       }
       </style>
       `

@@ -1,4 +1,4 @@
-import ExerciseLibrary from "../exerciselibrary/exersicelibrary"
+import ExerciseList from "../exerciselist/exerciselist"
 import Plan from "../plan/plan.js"
 
 export default {
@@ -8,13 +8,13 @@ export default {
   },
   mapDOM(scope) {
     return {
-      library: scope.querySelector("wkout-exercise-lib"),
+      library: scope.querySelector("wkout-exercise-list"),
       plan: scope.querySelector("wkout-plan")
     }
   },
   html(props) {
-    return `<wkout-exercise-lib>
-            </wkout-exercise-lib>
+    return `<wkout-exercise-list>
+            </wkout-exercise-list>
             <div id="divider-line"></div>
             <wkout-plan></wkout-plan>
       `
@@ -25,7 +25,7 @@ export default {
     :host {
       display: flex
     }
-    wkout-exercise-lib,
+    wkout-exercise-list,
     wkout-plan {
       flex: 1;
       height: 100vh;
@@ -35,7 +35,7 @@ export default {
       width: 1px;
       height: 100%;
       margin-right: 25px;
-      background-color: black;
+      background-color: var(--text-color);
     }
     </style>`
   }

@@ -1,5 +1,9 @@
 :root {
-  --my-color: green;
+  --inverted-text-color: #eaeaea;
+  --text-color: #3a3a3a;
+  --label-color: #2a2a2a;
+  --header-font-size: 21px;
+  --font: "Robot Slab", serif;
 }
 body {
   margin: 0;

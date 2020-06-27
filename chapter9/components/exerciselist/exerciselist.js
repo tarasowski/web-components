@@ -16,6 +16,6 @@ export default class ExerciseLibrary extends HTMLElement {
   }
 }
 
-!customElements.get("wkout-exercise-lib")
-  ? customElements.define("wkout-exercise-lib", ExerciseLibrary)
+!customElements.get("wkout-exercise-list")
+  ? customElements.define("wkout-exercise-list", ExerciseLibrary)
   : void 7
